@@ -20,10 +20,7 @@ a {
   /* Position relative for absolute positioning of pseudo-elements */
 }
 
-a:hover {
-  color: var(--hover-color-dark);
-  /* Change the text color on hover */
-}
+
 
 a::before {
   content: '';
@@ -62,7 +59,7 @@ a::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--background-color-dark);
+  background-color: var(--background-color-light);
 }
 
 #navbar.half-width {
@@ -97,6 +94,7 @@ section{
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index: -1;
 }
 
 .main-info h1{
