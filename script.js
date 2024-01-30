@@ -1,33 +1,9 @@
 // Get a reference to the navbar element
-const navBar = document.getElementById('nav-bar');
-
-// Variable to store the width of the navbar
-let navBarWidth = navBar.offsetWidth;
-
-// Function to open the navbar
-function openNav() {
-  navBar.classList.remove('closed');
-  // Update the navbar width when it's open
-  navBarWidth = navBar.offsetWidth;
-  // Adjust the left margin of content
-  adjustContentMargin();
-}
-
-// Function to close the navbar
-function closeNav() {
-  navBar.classList.add('closed');
-  // Update the navbar width when it's closed
-  navBarWidth = navBar.offsetWidth;
-  // Adjust the left margin of content
-  adjustContentMargin();
-}
+const navBar = document.getElementById('navbar');
 
 // Function to toggle the navbar
 function toggleNav() {
-  navBar.classList.toggle('closed');
-  // Update the navbar width when it's toggled
-  navBarWidth = navBar.offsetWidth;
-  // Adjust the left margin of content
+  navBar.classList.toggle('half-width');
   adjustContentMargin();
 }
 
@@ -36,11 +12,20 @@ function adjustContentMargin() {
   // Select all sections in the document
   const sections = document.querySelectorAll('section');
 
+  // Get the width of the button inside the navbar
+  const buttonWidth = document.querySelector('#navbar button').offsetWidth;
+
+  // Get the width of the navbar
+  const navbarWidth = navBar.offsetWidth;
+
+  // Calculate the new width (half of the original width)
+  const newNavbarWidth = navbarWidth / 2;
+
   // Loop through each section
   sections.forEach((section) => {
     // Set the left margin of the section
-    // If the navbar is closed, set the left margin to '0'
-    // If the navbar is open, set the left margin to the width of the navbar
-    section.style.marginLeft = navBar.classList.contains('closed') ? '0' : navBarWidth + 'px';
+    // If the navbar is in half-width state, set the left margin to half of the navbar width
+    // If the navbar is not in half-width state, set the left margin to the full navbar width
+    section.style.marginLeft = navBar.classList.contains('half-width') ? newNavbarWidth + 'px' : navbarWidth + 'px';
   });
 }

@@ -40,13 +40,6 @@ a::before {
   /* Add a transition for a smooth effect */
 }
 
-.nav-button {
-  height: 40px;
-  margin-bottom: 15px;
-  /* Adjust this value to control the spacing between buttons */
-  overflow: hidden;
-  /* Hide overflow for pseudo-element positioning */
-}
 
 .nav-button:hover a::before {
   width: 100%;
@@ -58,7 +51,11 @@ a::before {
   /* Change the text color on hover */
 }
 
-#nav-bar{
+.nav-button {
+  margin: 20px
+}
+
+#navbar{
   position: fixed;
   width: 200px;
   height: 100%;
@@ -68,14 +65,18 @@ a::before {
   background-color: var(--background-color-dark);
 }
 
-#nav-bar.closed{
-  transform: translateX(-200px);
+#navbar.half-width {
+  width: 100px;
+  /* Adjust the half-width as needed */
 }
+
 
 section{
   margin-left: 200px;
 }
 
+
+/* ABOUT SECTION */
 .main-info{
   position: relative;
   height: 95vh;
