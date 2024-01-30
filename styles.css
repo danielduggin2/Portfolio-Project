@@ -1,120 +1,116 @@
-/* General CSS */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --background-color-dark: #121212;
+  --background-color-light: #9394a5;
+  --hover-color-dark: rgba(83, 74, 130, 0.95);
+  /* Define the color for the hover effect */
 }
 
-body {
-    font-family: Arial, sans-serif;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-main{
-    margin-top: 50px;
-}
-/* Nav Bar */
-header {
-    background-color: #2C2D31;
-    color: #F0F8FF;
-    padding: 25px 10px; /* add padding to left and right */
-    width: 100%;
-    text-align: right;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* add shadow to the header */
-    z-index: 1; /* make sure it's on top of other elements */
-    position: sticky;
-  }
-  
-  
-  nav{
-    width: 95%;
-    margin: 0 auto;
-    display: block;
-  }
-  nav li:first-child {
-    float: left;
-    margin-left: 20px;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-  }
-  
-  nav li {
-    display: inline-block;
-    margin-right: 40px;
-    font-family: Arial, sans-serif;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  @media screen and (max-width: 665px) {
-      nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      nav li {
-        margin: 10px 0;
-        display: block;
-        text-align: center;
-      }
-      nav li:first-child {
-        float: none;
-        margin-left: 0;
-      }
-  
-      header{
-          position: relative;
-      }
-    }
-
-/* Project Section */
-.project-section{
-
+a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  /* Position relative for absolute positioning of pseudo-elements */
 }
 
-.project-card{
-    border-radius: 7px;
-    border: 2px solid green;
-    background-color: aqua;
+a:hover {
+  color: var(--hover-color-dark);
+  /* Change the text color on hover */
 }
 
-.project-title{
-    text-align: center;
+a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  /* Position the pseudo-element at the center */
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  /* Adjust the height of the rounded bar */
+  background-color: var(--hover-color-dark);
+  transition: width 0.3s;
+  /* Add a transition for a smooth effect */
 }
 
-.project-image{
-    width: 100%;
-    height: auto;
+.nav-button {
+  height: 40px;
+  margin-bottom: 15px;
+  /* Adjust this value to control the spacing between buttons */
+  overflow: hidden;
+  /* Hide overflow for pseudo-element positioning */
 }
 
-.project-gallery{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px 10px;
+.nav-button:hover a::before {
+  width: 100%;
+  /* Expand the rounded bar on hover */
 }
 
-.project-info{
-    text-align: center;
-    color: red;
+.nav-button:hover a {
+  color: var(--hover-color);
+  /* Change the text color on hover */
 }
 
-.title{
-
-    color: blue;
+#nav-bar{
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color-dark);
 }
+
+#nav-bar.closed{
+  transform: translateX(-200px);
+}
+
+section{
+  margin-left: 200px;
+}
+
+.main-info{
+  position: relative;
+  height: 95vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-info::before{
+  content: "";
+  background-image: url(Assets/dev.avif);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+}
+
+.main-info h1{
+  font-size: 6rem;
+}
+.main-info h3{
+  font-size: 3rem;
+}
+
+.main-info h1,h3{
+  position: relative;
+  font-weight: 700;
+  background-image: linear-gradient(43deg, #415BD0 0%, #C850C0 46%, #ffcc70);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
